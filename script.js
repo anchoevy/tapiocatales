@@ -1,29 +1,44 @@
-// Quiz data - you can easily add more questions here
+// Singapore WWII Food Personality Quiz Data
 const quizData = [
     {
-        question: "What is the capital of France?",
-        options: ["London", "Berlin", "Paris", "Madrid"],
-        correct: 2
+        question: "During tough times, what do you prefer to do?",
+        options: ["Make do with what you have", "Share with others", "Find creative solutions", "Wait for better times"],
+        correct: 0 // All answers are valid for personality
     },
     {
-        question: "Which planet is known as the Red Planet?",
-        options: ["Venus", "Mars", "Jupiter", "Saturn"],
-        correct: 1
+        question: "What's your ideal meal situation?",
+        options: ["Simple and filling", "Shared with family", "Whatever is available", "Traditional and comforting"],
+        correct: 0
     },
     {
-        question: "What is 2 + 2?",
-        options: ["3", "4", "5", "6"],
-        correct: 1
+        question: "How do you handle scarcity?",
+        options: ["Adapt and improvise", "Help others first", "Stay positive", "Remember better times"],
+        correct: 0
     },
     {
-        question: "Which ocean is the largest?",
-        options: ["Atlantic", "Indian", "Arctic", "Pacific"],
-        correct: 3
+        question: "What's most important to you?",
+        options: ["Survival", "Community", "Tradition", "Hope"],
+        correct: 0
     },
     {
-        question: "What is the chemical symbol for gold?",
-        options: ["Go", "Gd", "Au", "Ag"],
-        correct: 2
+        question: "Your ideal cooking method?",
+        options: ["One-pot meals", "Family recipes", "Whatever works", "Simple and fast"],
+        correct: 0
+    },
+    {
+        question: "What motivates you most?",
+        options: ["Practical needs", "Caring for others", "Cultural pride", "Future dreams"],
+        correct: 0
+    },
+    {
+        question: "How do you see food?",
+        options: ["Necessity for survival", "Way to bring people together", "Connection to home", "Source of comfort"],
+        correct: 0
+    },
+    {
+        question: "What's your approach to challenges?",
+        options: ["Face them head-on", "Work with others", "Draw on experience", "Stay optimistic"],
+        correct: 0
     }
 ];
 
@@ -124,15 +139,7 @@ function nextQuestion() {
 }
 
 function submitQuiz() {
-    // Calculate score
-    score = 0;
-    quizData.forEach((question, index) => {
-        if (userAnswers[index] === question.correct) {
-            score++;
-        }
-    });
-    
-    // Show results
+    // Calculate personality based on answers
     showResults();
 }
 
@@ -141,25 +148,59 @@ function showResults() {
     quizScreen.classList.add('hidden');
     resultsScreen.classList.remove('hidden');
     
-    // Update score display
-    document.getElementById('score').textContent = score;
-    document.getElementById('total-score').textContent = quizData.length;
+    // Calculate personality based on answers
+    const answers = userAnswers;
+    let personality = '';
+    let description = '';
+    let emoji = '';
+    let color = '';
     
-    // Update score message
-    const percentage = (score / quizData.length) * 100;
-    let message = '';
+    // Simple personality calculation based on answer patterns
+    const answerCounts = [0, 0, 0, 0];
+    answers.forEach(answer => {
+        if (answer !== undefined) answerCounts[answer]++;
+    });
     
-    if (percentage === 100) {
-        message = 'Perfect! You got them all right! 🎉';
-    } else if (percentage >= 80) {
-        message = 'Excellent work! 🌟';
-    } else if (percentage >= 60) {
-        message = 'Good job! 👍';
-    } else {
-        message = 'Keep practicing! 💪';
+    const maxIndex = answerCounts.indexOf(Math.max(...answerCounts));
+    
+    // Singapore WWII Food Personalities
+    switch(maxIndex) {
+        case 0: // Mostly A answers
+            personality = 'Rice & Salt Fish';
+            description = 'You\'re practical and resilient, like the staple rice and preserved fish that sustained Singaporeans during the occupation. You adapt to any situation and make the most of what you have.';
+            emoji = '🍚🐟';
+            color = '#8B4513';
+            break;
+        case 1: // Mostly B answers
+            personality = 'Kopi & Kaya Toast';
+            description = 'You\'re social and community-minded, like the kopi shops that brought people together during difficult times. You value relationships and sharing with others.';
+            emoji = '☕🍞';
+            color = '#D2691E';
+            break;
+        case 2: // Mostly C answers
+            personality = 'Sweet Potato & Cassava';
+            description = 'You\'re creative and resourceful, like the root vegetables that became survival foods. You find innovative solutions and stay positive even in tough times.';
+            emoji = '🍠🌿';
+            color = '#228B22';
+            break;
+        case 3: // Mostly D answers
+            personality = 'Teh Tarik & Curry';
+            description = 'You\'re traditional and hopeful, like the beloved local flavors that provided comfort. You draw strength from culture and look forward to better times.';
+            emoji = '🧋🍛';
+            color = '#FF6347';
+            break;
+        default:
+            personality = 'Mixed Heritage Stew';
+            description = 'You\'re a blend of all Singaporean qualities - resilient, social, creative, and traditional. You represent the diverse spirit of Singapore during WWII.';
+            emoji = '🍲🇸🇬';
+            color = '#4B0082';
     }
     
-    document.getElementById('score-message').textContent = message;
+    // Update the display
+    document.getElementById('score').textContent = personality;
+    document.getElementById('total-score').textContent = 'Personality';
+    document.getElementById('score-message').textContent = description + ' ' + emoji;
+    document.getElementById('score-message').style.color = color;
 }
 
 function restartQuiz() {

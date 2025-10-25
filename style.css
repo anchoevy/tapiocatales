@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #FFD700 0%, #FF6347 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -25,20 +25,10 @@ body {
 }
 
 header {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    color: white;
+    background: linear-gradient(135deg, #FF0000 0%, #FFFFFF 50%, #FF0000 100%);
+    color: #000;
     text-align: center;
     padding: 30px;
-}
-
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 1.1rem;
-    opacity: 0.9;
 }
 
 /* Screen management */
@@ -161,9 +151,11 @@ header p {
     letter-spacing: 1px;
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
-    color: white;
+header {
+    background: linear-gradient(135deg, #FF0000 0%, #FFFFFF 50%, #FF0000 100%);
+    color: #000;
+    text-align: center;
+    padding: 30px;
 }
 
 .btn-primary:hover {
