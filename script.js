@@ -3,7 +3,7 @@ const quizData = [
     {
         question: "During tough times, what do you prefer to do?",
         options: ["Make do with what you have", "Share with others", "Find creative solutions", "Wait for better times"],
-        correct: 0 // All answers are valid for personality
+        correct: 0
     },
     {
         question: "What's your ideal meal situation?",
