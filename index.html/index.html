@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 Simple Quiz App</h1>
+            <p>Test your knowledge with our fun quiz!</p>
+        </header>
+
+        <div id="start-screen" class="screen">
+            <div class="start-content">
+                <h2>Welcome to the Quiz!</h2>
+                <p>Click the button below to start answering questions.</p>
+                <button id="start-btn" class="btn btn-primary">Start Quiz</button>
+            </div>
+        </div>
+
+        <div id="quiz-screen" class="screen hidden">
+            <div class="quiz-header">
+                <div class="progress-bar">
+                    <div id="progress" class="progress-fill"></div>
+                </div>
+                <div class="question-counter">
+                    <span id="current-question">1</span> / <span id="total-questions">5</span>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <h2 id="question-text">Question will appear here</h2>
+                <div id="options-container" class="options">
+                    <!-- Options will be added by JavaScript -->
+                </div>
+            </div>
+
+            <div class="quiz-controls">
+                <button id="next-btn" class="btn btn-secondary hidden">Next Question</button>
+                <button id="submit-btn" class="btn btn-primary hidden">Submit Quiz</button>
+            </div>
+        </div>
+
+        <div id="results-screen" class="screen hidden">
+            <div class="results-content">
+                <h2>Quiz Complete! 🎉</h2>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="score">0</span>
+                        <span class="score-label">out of</span>
+                        <span id="total-score">5</span>
+                    </div>
+                </div>
+                <p id="score-message">Great job!</p>
+                <div class="results-actions">
+                    <button id="restart-btn" class="btn btn-primary">Take Quiz Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
