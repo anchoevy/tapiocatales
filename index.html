@@ -7,25 +7,24 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <header>
+  <div class="quiz-container">
+    <!-- Header -->
+    <header class="quiz-header">
       <h1>🇸🇬 Which WWII Food Are You?</h1>
       <p>Discover your Singapore WWII food personality!</p>
     </header>
 
     <!-- Start Screen -->
-    <div id="start-screen" class="screen">
-      <div class="start-content">
-        <h2>Welcome to the Singapore WWII Food Quiz!</h2>
-        <p>Find out which wartime food matches your personality. Based on Singapore's WWII food history.</p>
-        <button id="start-btn" class="btn btn-primary">Start Quiz</button>
-      </div>
-    </div>
+    <section id="start-screen" class="screen">
+      <h2>Welcome to the Singapore WWII Food Quiz!</h2>
+      <p>Find out which wartime food matches your personality. Based on Singapore's WWII food history.</p>
+      <button id="start-btn" class="btn btn-primary">Start Quiz</button>
+    </section>
 
     <!-- Quiz Screen -->
-    <div id="quiz-screen" class="screen hidden">
-      <div class="quiz-header">
-        <div class="progress-bar">
+    <section id="quiz-screen" class="screen hidden">
+      <div class="progress-wrapper">
+        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
           <div id="progress" class="progress-fill"></div>
         </div>
         <div class="question-counter">
@@ -35,34 +34,31 @@
 
       <div class="question-container">
         <h2 id="question-text">Question will appear here</h2>
-        <div id="options-container" class="options">
-          <!-- Options injected by JS -->
-        </div>
+        <div id="options-container" class="options"></div>
       </div>
 
       <div class="quiz-controls">
+        <button id="prev-btn" class="btn btn-secondary hidden">Previous Question</button>
         <button id="next-btn" class="btn btn-secondary hidden">Next Question</button>
         <button id="submit-btn" class="btn btn-primary hidden">Submit Quiz</button>
       </div>
-    </div>
+    </section>
 
     <!-- Results Screen -->
-    <div id="results-screen" class="screen hidden">
-      <div class="results-content">
-        <h2>Your WWII Food Personality! 🎉</h2>
-        <div class="score-display">
-          <div class="score-circle">
-            <h3 id="score">Result</h3>
-            <p id="total-score">Personality</p>
-          </div>
-        </div>
-        <p id="score-message">Your description will appear here.</p>
-        <button id="restart-btn" class="btn btn-secondary">Restart Quiz</button>
+    <section id="results-screen" class="screen hidden">
+      <h2>Your WWII Food Personality! 🎉</h2>
+      <div class="score-circle">
+        <h3 id="score">Result</h3>
+        <p id="total-score">Personality</p>
       </div>
-    </div>
+      <div class="result-image">
+        <img id="result-img" src="" alt="" />
+      </div>
+      <p id="score-message">Your description will appear here.</p>
+      <button id="restart-btn" class="btn btn-secondary">Restart Quiz</button>
+    </section>
   </div>
 
-  <!-- Link to your JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
